@@ -2,7 +2,7 @@ version: '3.3'
 services:
   web:
     build: ./spring-app/
-    image: yanivomc/spring-music:8
+    image: yanivomc/spring-music:9
     restart: always
     ports:
       - 8080:8080
