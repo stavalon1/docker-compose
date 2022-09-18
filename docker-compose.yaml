@@ -1,12 +1,19 @@
 version: '3.3'
 services:
   web:
-    image: yanivomc/spring-music:latest
-    ports:
-      - 8080:8080
+   build: ./spring-app/
+   image: yanivomc/spring-music:latest
+   ports:
+     - 8080:8080
+   networks:
+     - dblayer
+     - applayer
 
   redisdb:
      image: redis
+     environment:
+       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+       - MYSQL_DATABASE=music
      ports:
        - 6379:6379
 
@@ -14,3 +21,7 @@ services:
     image: nginx
     ports:
       - 80:80
+      
+networks:
+  dblayer:
+  applayer:
