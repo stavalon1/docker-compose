@@ -21,7 +21,7 @@ services:
 
   db_mysql:
     image: wangxian/alpine-mysql
-    environment: # env variables
+    environment: 
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_DATABASE=music
     ports:
